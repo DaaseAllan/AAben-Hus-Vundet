@@ -23,7 +23,6 @@ public class ObstacleGen : MonoBehaviour {
             Marker.transform.position += Vector3.down * gameSpeed * Time.deltaTime;
             if(Marker.transform.position.y <= -20)
             {
-                print("resetter marker");
                 ResetObstacleMarker(Marker);
             }
         }
@@ -46,7 +45,6 @@ public class ObstacleGen : MonoBehaviour {
         }
 
         //Tilføjer et nyt prefab fra listen
-        print(Random.Range(0, ObstaclePrefabs.Count));
         Instantiate(ObstaclePrefabs[Random.Range(0,ObstaclePrefabs.Count)], Marker.transform);
     }
 }
