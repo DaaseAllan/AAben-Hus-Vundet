@@ -46,6 +46,7 @@ public class ObstacleGen : MonoBehaviour {
         }
 
         //Tilføjer et nyt prefab fra listen
-        Instantiate(ObstaclePrefabs[Random.Range(0,ObstaclePrefabs.Count-1)], Marker.transform);
+        print(Random.Range(0, ObstaclePrefabs.Count));
+        Instantiate(ObstaclePrefabs[Random.Range(0,ObstaclePrefabs.Count)], Marker.transform);
     }
 }
