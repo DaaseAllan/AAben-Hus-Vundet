@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 1671354757}
   - component: {fileID: 1671354753}
   - component: {fileID: 1671354758}
+  - component: {fileID: 1671354759}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -483,6 +484,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bc00d60080a1646916cc905fcb8646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1671354759
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671354752}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1795105885
 GameObject:
   m_ObjectHideFlags: 0
