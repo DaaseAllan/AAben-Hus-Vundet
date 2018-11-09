@@ -20,8 +20,11 @@ public class BallHandler : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gameHandler.GetComponent<GameHandling>().gameLose();
-        rb.velocity = new Vector2(0, 0);
-
+        
+        if(gameHandler.GetComponent<GameHandling>().gameIsActive == true)
+        {
+            gameHandler.GetComponent<GameHandling>().gameLose();
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 }

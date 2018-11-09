@@ -251,6 +251,7 @@ MonoBehaviour:
   - {fileID: 1384321963936250, guid: c2b1269300019ae4187062bde6eecf44, type: 2}
   - {fileID: 1386025968822202, guid: 1a8917c46531c8448b4e8690f033ee36, type: 2}
   - {fileID: 1206685677170604, guid: 45b37d4e5ec2c8540b18264e5ca926ce, type: 2}
+  - {fileID: 1345657398129976, guid: 94c6f36d2ee5a4d42ad8fc280b79e7eb, type: 2}
   gameIsActive: 0
 --- !u!4 &792300147
 Transform:
@@ -297,6 +298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleGenerator: {fileID: 792300145}
+  PlayerBall: {fileID: 1671354752}
+  gameIsActive: 0
 --- !u!4 &1131764831
 Transform:
   m_ObjectHideFlags: 0
@@ -377,11 +380,11 @@ GameObject:
   - component: {fileID: 1671354755}
   - component: {fileID: 1671354754}
   - component: {fileID: 1671354757}
-  - component: {fileID: 1671354753}
   - component: {fileID: 1671354758}
+  - component: {fileID: 1671354753}
   - component: {fileID: 1671354759}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: PlayerBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hSpeed: 6
   rb: {fileID: 0}
+  gameHandler: {fileID: 1131764829}
 --- !u!114 &1671354758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bc00d60080a1646916cc905fcb8646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameHandler: {fileID: 1131764829}
 --- !u!58 &1671354759
 CircleCollider2D:
   m_ObjectHideFlags: 0
