@@ -7,25 +7,34 @@ public class ObstacleGen : MonoBehaviour {
     public float gameSpeed;
     public List<GameObject> obstacleMarkers;
     public List<GameObject> ObstaclePrefabs;
+    public bool gameIsActive = false;
+
+
 	// Use this for initialization
 	void Start () {
-		foreach (Transform child in transform)
+        //LAver en liste over alle markers
+        foreach (Transform child in transform)
         {
             obstacleMarkers.Add(child.gameObject);
         }
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        foreach (GameObject Marker in obstacleMarkers)
+        if (gameIsActive)
         {
-            Marker.transform.position += Vector3.down * gameSpeed * Time.deltaTime;
-            if(Marker.transform.position.y <= -20)
+            foreach (GameObject Marker in obstacleMarkers)
             {
-                ResetObstacleMarker(Marker);
+                //Flytter markersne ned
+                Marker.transform.position += Vector3.down * gameSpeed * Time.deltaTime;
+                if (Marker.transform.position.y <= -20)
+                {
+                    //Flytter markersne tilbage til toppen
+                    ResetObstacleMarker(Marker);
+                }
             }
         }
+
     }
 
     private void FixedUpdate()
@@ -46,5 +55,27 @@ public class ObstacleGen : MonoBehaviour {
 
         //Tilføjer et nyt prefab fra listen
         Instantiate(ObstaclePrefabs[Random.Range(0,ObstaclePrefabs.Count)], Marker.transform);
+    }
+
+    public void StartGen()
+    {
+        //Spawner
+        gameIsActive = true;
+    }
+
+    public void StopGen()
+    {
+        gameIsActive = false;
+    }
+
+    public void RemoveAllObstacles()
+    {
+        foreach(GameObject marker in obstacleMarkers)
+        {
+            foreach(Transform child in marker.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
     }
 }
