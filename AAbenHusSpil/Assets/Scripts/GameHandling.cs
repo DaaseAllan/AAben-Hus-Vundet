@@ -7,10 +7,21 @@ public class GameHandling : MonoBehaviour {
     public GameObject ObstacleGenerator;
     public GameObject PlayerBall;
 
+    public GameObject OpenBallsBtn;
+    public GameObject CloseBallsBtn;
+    public GameObject ChooseBallsPanel;
+
     public bool gameIsActive = false;
     private bool gameReadyToStart = true;
-	// Use this for initialization
-	void Start () {
+
+    public enum BallTypes
+    {
+        Normal,
+        Test
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -47,4 +58,12 @@ public class GameHandling : MonoBehaviour {
             gameReadyToStart = false;
         }
     }
+
+    public void OpenChooseBall()
+    {
+        gameReadyToStart = false;
+        OpenBallsBtn.SetActive(false);
+        ChooseBallsPanel.SetActive(true);
+    }
 }
+ 
