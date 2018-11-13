@@ -16,13 +16,7 @@ public class GameHandling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive == false && Input.GetMouseButtonDown(0) && gameReadyToStart)
-        {
-            //Spillet skal startes
-            ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive = true;
-            gameIsActive = true;
-            gameReadyToStart = false;
-        }
+
 	}
 
     //Is this?
@@ -40,5 +34,17 @@ public class GameHandling : MonoBehaviour {
         ObstacleGenerator.GetComponent<ObstacleGen>().RemoveAllObstacles();
         gameReadyToStart = true;
         PlayerBall.transform.position = new Vector2(0f, -5.5f);
+    }
+
+    public void GameStart()
+    {
+        if (ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive == false && gameReadyToStart)
+        {
+            print("Spil startet");
+            //Spillet skal startes
+            ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive = true;
+            gameIsActive = true;
+            gameReadyToStart = false;
+        }
     }
 }
