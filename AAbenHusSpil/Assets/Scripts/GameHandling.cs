@@ -45,6 +45,7 @@ public class GameHandling : MonoBehaviour {
         ObstacleGenerator.GetComponent<ObstacleGen>().RemoveAllObstacles();
         gameReadyToStart = true;
         PlayerBall.transform.position = new Vector2(0f, -5.5f);
+        OpenBallsBtn.SetActive(true);
     }
 
     public void GameStart()
@@ -56,6 +57,7 @@ public class GameHandling : MonoBehaviour {
             ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive = true;
             gameIsActive = true;
             gameReadyToStart = false;
+            OpenBallsBtn.SetActive(false);
         }
     }
 
@@ -64,6 +66,15 @@ public class GameHandling : MonoBehaviour {
         gameReadyToStart = false;
         OpenBallsBtn.SetActive(false);
         ChooseBallsPanel.SetActive(true);
+        CloseBallsBtn.SetActive(true);
+    }
+
+    public void CloseChooseBall()
+    {
+        gameReadyToStart = true;
+        OpenBallsBtn.SetActive(true);
+        ChooseBallsPanel.SetActive(false);
+        CloseBallsBtn.SetActive(false);
     }
 }
  
