@@ -8,12 +8,16 @@ public class BallMovement : MonoBehaviour {
     public Rigidbody2D rb;
     public GameObject gameHandler;
 
+    private GameHandling.BallTypes ballType;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
+        print(ballType);
+
         //Sikrer at spillet er i gang, før at man kan bevæge sig
         if(gameHandler.GetComponent<GameHandling>().gameIsActive == true)
         {
@@ -45,4 +49,9 @@ public class BallMovement : MonoBehaviour {
         }
 
 	}
+
+    public void UpdateBall()
+    {
+        ballType = GetComponent<BallHandler>().ballType;
+    }
 }

@@ -5,8 +5,10 @@ using UnityEngine;
 public class BallHandler : MonoBehaviour {
 
     public GameObject gameHandler;
-    private Rigidbody2D rb;
+    public GameHandling.BallTypes ballType;
 
+
+    private Rigidbody2D rb;
 
 
     // Use this for initialization
@@ -28,5 +30,20 @@ public class BallHandler : MonoBehaviour {
             gameHandler.GetComponent<GameHandling>().gameLose();
             rb.velocity = new Vector2(0, 0);
         }
+    }
+
+    //Funktioner til at vælge bolden
+    public void PickBallType(string chosenBallType)
+    {
+        switch (chosenBallType)
+        {
+            case "Normal":
+                ballType = GameHandling.BallTypes.Normal;
+                break;
+            case "Test":
+                ballType = GameHandling.BallTypes.Test;
+                break;
+        }
+        GetComponent<BallMovement>().UpdateBall();
     }
 }
