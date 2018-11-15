@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameHandling : MonoBehaviour {
 
@@ -10,9 +11,12 @@ public class GameHandling : MonoBehaviour {
     public GameObject OpenBallsBtn;
     public GameObject CloseBallsBtn;
     public GameObject ChooseBallsPanel;
+    public Text ScoreText;
 
     public bool gameIsActive = false;
     private bool gameReadyToStart = true;
+
+    public float Score;
 
     public enum BallTypes
     {
@@ -27,7 +31,9 @@ public class GameHandling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        Score += Time.deltaTime;
+        print((int)Score);
+        ScoreText.text = ((int)Score).ToString();
 	}
 
     //Is this?
