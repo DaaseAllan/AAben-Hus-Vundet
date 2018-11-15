@@ -72,6 +72,8 @@ public class GameHandling : MonoBehaviour {
             gameIsActive = true;
             gameReadyToStart = false;
             OpenBallsBtn.SetActive(false);
+
+            PlayerBall.GetComponent<BallHandler>().GetBallBonuses();
         }
     }
 

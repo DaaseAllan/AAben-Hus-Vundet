@@ -6,6 +6,7 @@ public class BallHandler : MonoBehaviour {
 
     public GameObject gameHandler;
     public GameHandling.BallTypes ballType;
+    public int bonusLives;
 
 
     private Rigidbody2D rb;
@@ -18,7 +19,7 @@ public class BallHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        print(bonusLives);
 	}
 
 
@@ -27,8 +28,20 @@ public class BallHandler : MonoBehaviour {
         
         if(gameHandler.GetComponent<GameHandling>().gameIsActive == true)
         {
-            gameHandler.GetComponent<GameHandling>().gameLose();
-            rb.velocity = new Vector2(0, 0);
+            if(bonusLives <= 0)
+            {
+                //Du dør
+                gameHandler.GetComponent<GameHandling>().gameLose();
+                rb.velocity = new Vector2(0, 0);
+
+            }
+            else
+            {
+                //Du overlever
+                GameObject.Destroy(collision.gameObject);
+                bonusLives -= 1;
+            }
+
         }
     }
 
@@ -45,5 +58,20 @@ public class BallHandler : MonoBehaviour {
                 break;
         }
         GetComponent<BallMovement>().UpdateBall();
+    }
+
+
+    //Bliver kaldt af gamehandler
+    public void GetBallBonuses()
+    {
+        switch (ballType)
+        {
+            case GameHandling.BallTypes.Normal:
+                bonusLives = 0;
+                break;
+            case GameHandling.BallTypes.Test:
+                bonusLives = 1;
+                break;
+        }
     }
 }

@@ -16,7 +16,6 @@ public class BallMovement : MonoBehaviour {
 	}
 	
 	void Update () {
-        print(ballType);
 
         //Sikrer at spillet er i gang, før at man kan bevæge sig
         if(gameHandler.GetComponent<GameHandling>().gameIsActive == true)
