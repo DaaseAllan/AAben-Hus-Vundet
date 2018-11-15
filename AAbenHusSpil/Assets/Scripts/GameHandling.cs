@@ -32,7 +32,6 @@ public class GameHandling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print((int)Score);
         ScoreText.text = ((int)Score).ToString();
         if(ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive == true)
         {

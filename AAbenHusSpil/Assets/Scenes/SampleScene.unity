@@ -1121,6 +1121,7 @@ MonoBehaviour:
   ScoreText: {fileID: 1064700228}
   gameIsActive: 0
   Score: 0
+  gameSpeed: 0.1
 --- !u!4 &1131764831
 Transform:
   m_ObjectHideFlags: 0
