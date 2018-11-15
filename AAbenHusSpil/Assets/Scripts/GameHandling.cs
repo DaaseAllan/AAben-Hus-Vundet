@@ -17,6 +17,7 @@ public class GameHandling : MonoBehaviour {
     private bool gameReadyToStart = true;
 
     public float Score;
+    public float gameSpeed = 0.1f;
 
     public enum BallTypes
     {
@@ -31,9 +32,15 @@ public class GameHandling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Score += Time.deltaTime;
         print((int)Score);
         ScoreText.text = ((int)Score).ToString();
+        if(ObstacleGenerator.GetComponent<ObstacleGen>().gameIsActive == true)
+        {
+            ObstacleGenerator.GetComponent<ObstacleGen>().gameSpeed += Time.deltaTime * 0.1f;
+
+            Score += Time.deltaTime;
+        }
+
 	}
 
     //Is this?
@@ -52,6 +59,8 @@ public class GameHandling : MonoBehaviour {
         gameReadyToStart = true;
         PlayerBall.transform.position = new Vector2(0f, -5.5f);
         OpenBallsBtn.SetActive(true);
+        ObstacleGenerator.GetComponent<ObstacleGen>().gameSpeed = 7;
+        Score = 0;
     }
 
     public void GameStart()
