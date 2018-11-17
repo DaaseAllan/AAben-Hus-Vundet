@@ -8,6 +8,10 @@ public class BallHandler : MonoBehaviour {
     public GameHandling.BallTypes ballType;
     public int bonusLives;
 
+    //RImelig hurtig løsning
+    public Material normalMat;
+    public Material testMat;
+
 
     private Rigidbody2D rb;
 
@@ -52,9 +56,11 @@ public class BallHandler : MonoBehaviour {
         {
             case "Normal":
                 ballType = GameHandling.BallTypes.Normal;
+                GetComponent<MeshRenderer>().material = normalMat;
                 break;
             case "Test":
                 ballType = GameHandling.BallTypes.Test;
+                GetComponent<MeshRenderer>().material = testMat;
                 break;
         }
         GetComponent<BallMovement>().UpdateBall();
